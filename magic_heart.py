@@ -37,15 +37,16 @@ def generate_parade_colored():
             output += c
     return output
 
+
 async def process_love_words(event: NewMessage.Event):
     await client.edit_message(event.peer_id.user_id, event.message.id, 'I.')
     await asyncio.sleep(1)
     await client.edit_message(event.peer_id.user_id, event.message.id, 'I.LOVE.')
     await asyncio.sleep(1)
     await client.edit_message(event.peer_id.user_id, event.message.id, 'I.LOVE.YOU')
-    await asyncio.sleep(1)
-    await client.edit_message(event.peer_id.user_id, event.message.id, 'I.LOVE.YOU.FOREVER')
     await asyncio.sleep(2)
+    await client.edit_message(event.peer_id.user_id, event.message.id, 'I.LOVE.YOU.FOREVER')
+
 
 async def process_build_place(event: NewMessage.Event):
     output = ''
@@ -74,5 +75,6 @@ async def handle_message(event: NewMessage.Event):
 
 
 if __name__ == '__main__':
+    print('[*] Connect to client...')
     client.start()
     client.run_until_disconnected()
